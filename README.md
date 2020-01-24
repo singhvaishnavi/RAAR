@@ -13,7 +13,11 @@ source venv/bin/activate
 pip flask install
 
 # Running script
-export FLASK_APP=script.py
+export FLASK_APP=script.py (for linux)
+#
+set FLASK_APP=script.py (for windows)
 #
 flask run
+# Deactivating virtual environment
+deactivate
 

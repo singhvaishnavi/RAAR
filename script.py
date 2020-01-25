@@ -1,8 +1,8 @@
 import os
 import flask
 import pickle
-from flask import Flask,render_template,request
-app=Flask(__name__)
+from flask import Flask,render_template,request,url_for
+app=Flask(__name__,static_url_path="/static")
 
 
 @app.route('/')
@@ -15,7 +15,7 @@ def form():
         return flask.render_template('form.html')
     return flask.render_template('results.html')
 
-@app.route('/home')
+@app.route('/home',methods=['POST','GET'])
 def home():
     return flask.render_template('home.html')
 

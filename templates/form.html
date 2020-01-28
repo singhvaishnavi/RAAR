@@ -6,13 +6,19 @@
 <form class="col s12" action="/index" method="POST">
   <div class="row">
     <div class="input-field col s12">
-      <input id="location" type="text" name="location" class="validate">
-      <label for="location">Location</label>
-  </div>
+      <select name="location">
+      <option value="" disabled selected>Choose</option>
+      {% for key,value in location.items() %}
+          <option value={{value}}>{{key}}</option>
+      {% endfor %}
+    
+    </select>
+      <label>Location</label>
+    </div>
   </div>
 
   <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s12">
         <select name="online_order">
         <option value="" disabled selected>Choose</option>
         <option value="Yes">Yes</option>
@@ -20,8 +26,9 @@
         </select>
         <label>Online Order</label>
     </div>
-
-      <div class="input-field col s6">
+  </div>
+  <div class="row">
+      <div class="input-field col s12">
           <select name="book_table">
           <option value="" disabled selected>Choose</option>
           <option value="Yes">Yes</option>
@@ -37,13 +44,33 @@
     <label for="cost">Approx cost for two</label>
   </div>
 </div>
-
-  <div class="row">
+<div class="row">
   <div class="input-field col s12">
-    <input id="cuisine" type="text" name="cuisine" class="validate">
-    <label for="cuisine">Cuisine</label>
-  </div>
+    <select name="cuisine">
+    <option value="" disabled selected>Choose</option>
+    {% for key,value in cuisines.items() %}
+        <option value={{value}}>{{key}}</option>
+    {% endfor %}
+  
+  </select>
+    <label>Cuisine</label>
 </div>
+</div>
+
+<div class="row">
+<div class="input-field col s12">
+  <select name="rest_type">
+  <option value="" disabled selected>Choose</option>
+  {% for key,value in restype.items() %}
+      <option value={{value}}>{{key}}</option>
+  {% endfor %}
+
+</select>
+  <label>Restaurant Type</label>
+</div>
+
+</div>
+
 
 <div class="row">
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit

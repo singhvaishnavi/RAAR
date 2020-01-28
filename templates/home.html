@@ -3,30 +3,41 @@
 {% include "nav.html" %}
 <div class="container">
 <h4>Home Sweet Home</h4>
-<img src= "/static/images/img1.png" alt="User Image"/>
+<img src= {{ url_for('static',filename='img1.png') }} alt="User Image1"/>
+<img src= {{ url_for('static',filename='img2.png') }} alt="User Image2"/>
+<img src= {{ url_for('static',filename='img3.png') }} alt="User Image3"/>
+<img src= {{ url_for('static',filename='img4.png') }} alt="User Image4"/>
+<img src= {{ url_for('static',filename='img5.png') }} alt="User Image5"/>
+<p> Carousel </p>
 
+
+
+  <div class="carousel carousel-slider center">
+    <div class="carousel center">
+      <a class="btn waves-effect black-text grey-text darken-text-2">button</a>
+    </div>
+    <div class="carousel-item white black-text" href="#one!">
+      <h2>First Panel</h2>
+      <img src= {{ url_for('static',filename='img1.png') }} alt="User Image1"/>
+    </div>
+    <div class="carousel-item white black-text" href="#two!">
+      <h2>Second Panel</h2>
+      <img src= {{ url_for('static',filename='img2.png') }} alt="User Image2"/>
+    </div>
+    <div class="carousel-item white black-text" href="#three!">
+      <h2>Third Panel</h2>
+      <img src= {{ url_for('static',filename='img3.png') }} alt="User Image3"/>
+    </div>
+    <div class="carousel-item white black-text" href="#four!">
+      <h2>Fourth Panel</h2>
+      <img src= {{ url_for('static',filename='img4.png') }} alt="User Image4"/>
+    </div>
+  </div>
+  <p>End</p>
 
 
 
 <!--
-    <div class="card">
-  <div class="card-image waves-effect waves-block waves-light">
-    <div class="row"><img src="images\img1.png" width="500" height="600"></div>
-  </div>
-</div>
-
-
-
-
-<div class="row"><img src="images\img2.png"></div>
-<div class="row"><img src="images\img3.png"></div>
-<div class="row"><img src="images\img4.png"></div>
-<div class="row"><img src="images\img5.png"></div>
-
-
-
-
-
 
 
   <div class="carousel carousel-slider center">

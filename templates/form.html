@@ -3,7 +3,7 @@
 {% include "navigation.html" %}
 <div class="container">
 <h4>Enter Details</h4>
-<form class="col s12" action="/index" method="POST">
+<form class="col s12" action="/result" method="POST">
   <div class="row">
     <div class="input-field col s12">
       <select name="location">
@@ -56,7 +56,12 @@
     <label>Cuisine</label>
 </div>
 </div>
-
+  <div class="row">
+    <div class="input-field col s12">
+    <div class="chips chips-autocomplete chips-placeholder "></div>
+    
+</div>
+</div>
 <div class="row">
 <div class="input-field col s12">
   <select name="rest_type">
@@ -96,5 +101,23 @@
             $('textarea#address').characterCounter();
 
         });
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.chips');
+        var instances = M.Chips.init(elems, options);
+        });
+        $('.chips-autocomplete').chips({
+    autocompleteOptions: {
+      data: {
+        'Apple': null,
+        'Microsoft': null,
+        'Google': null
+      },
+      limit: Infinity,
+      minLength: 1
+    }
+  });
+  $('.chips-placeholder').chips({
+    placeholder: 'Enter a Cuisine',
+  });
     </script>
 {% endblock %}

@@ -190,9 +190,9 @@ def result():
         result = ValuePredictor(to_predict_list)
     prediction=str(result)
     """
-    if request.method == 'GET':
+    if request.method == 'POST':
         prediction="prediction"
-        return flask.render_template('result.html',prediction=prediction)
+        return flask.render_template('results.html',prediction=prediction)
     return flask.render_template('index.html')        
 
 @app.route('/home',methods=['POST','GET'])

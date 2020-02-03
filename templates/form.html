@@ -3,7 +3,7 @@
 {% include "navigation.html" %}
 <div class="container">
 <h4>Enter Details</h4>
-<form class="col s12" action="/result" method="POST">
+<form class="col s12" action="/results" method="POST">
   <div class="row">
     <div class="input-field col s12">
       <select name="location">
@@ -44,6 +44,7 @@
     <label for="cost">Approx cost for two</label>
   </div>
 </div>
+
 <div class="row">
   <div class="input-field col s12">
     <select name="cuisine">
@@ -54,8 +55,13 @@
   
   </select>
     <label>Cuisine</label>
+    <button class="btn waves-effect waves-light" type="" name="action">Add
+      
+  </button>
+  </div>
+
 </div>
-</div>
+
   <div class="row">
     <div class="input-field col s12">
     <div class="chips chips-autocomplete chips-placeholder "></div>
@@ -78,14 +84,11 @@
 
 
 <div class="row">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <button class="btn waves-effect waves-light">Submit
       <i class="material-icons right">send</i>
-  </button>
-
+    </button>
 </div>
-
-
-  </form>
+</form>
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

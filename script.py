@@ -179,8 +179,8 @@ def form():
         return flask.render_template('result.html')
     return flask.render_template('form.html',cuisines=get_cuisines(),restype=get_type(),location=get_locations())
 
-@app.route('/result',methods=['GET','POST'])
-def result():
+@app.route('/results',methods=['GET','POST'])
+def results():
 
     """
     if request.method == 'POST':
@@ -194,6 +194,10 @@ def result():
         prediction="prediction"
         return flask.render_template('results.html',prediction=prediction)
     return flask.render_template('index.html')        
+
+@app.route('/prediction',methods=['GET','POST'])
+def prediction():
+    return flask.render_template('prediction.html')
 
 @app.route('/home',methods=['POST','GET'])
 def home():

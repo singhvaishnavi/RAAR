@@ -203,7 +203,9 @@ def prediction():
 def home():
     return flask.render_template('home.html')
 
-
+@app.route('/dynamic',methods=['POST','GET'])
+def dynamic():
+    return flask.render_template('dynamic.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

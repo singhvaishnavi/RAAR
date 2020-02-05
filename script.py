@@ -1,6 +1,8 @@
 import os
 import flask
 import pickle
+import numpy as np
+import joblib
 from flask import Flask,render_template,request,url_for
 app=Flask(__name__,static_url_path="/static/")
 
@@ -9,13 +11,7 @@ app=Flask(__name__,static_url_path="/static/")
 @app.route('/index')
 def index():
     return flask.render_template('index.html')
-"""
-def ValuePredictor(to_predict_list):
-    to_predict = np.array(to_predict_list).reshape(1,12)
-    loaded_model = pickle.load(open("etree.pkl","rb"))
-    result = loaded_model.predict(to_predict)
-    return result[0]
-"""
+
 def sortdic(x):
     dc={}
     for key in sorted(x):
@@ -176,8 +172,14 @@ def get_type():
 @app.route('/form',methods=['GET','POST'])
 def form():
     if request.method == 'POST':
-        return flask.render_template('result.html')
+        data = flask.request.form
+        return flask.render_template('result.html',data=data)
     return flask.render_template('form.html',cuisines=get_cuisines(),restype=get_type(),location=get_locations())
+
+def ValuePredictor(to_predict_list):
+    md=pickle.load(open("/home/vaishnavi/Downloads/etree.pkl","rb"))
+    res=md.predict(to_predict_list)
+    return (res[0])
 
 @app.route('/results',methods=['GET','POST'])
 def results():
@@ -191,8 +193,58 @@ def results():
     prediction=str(result)
     """
     if request.method == 'POST':
-        prediction="prediction"
-        return flask.render_template('results.html',prediction=prediction)
+        data = flask.request.form
+        loc = {0: 185.0,
+                1: 164.0,
+                2: 235.0,
+                3: 313.0,
+                4: 379.0,
+                5: 195.0,
+                6: 319.0,
+                7: 390.0,
+                8: 100.0,
+                9: 248.0,
+                10: 233.0,
+                11: 448.0,
+                12: 247.0,
+                13: 202.0,
+                14: 146.0,
+                15: 137.0,
+                16: 371.0,
+                17: 384.0,
+                18: 393.0,
+                19: 378.0,
+                20: 345.0,
+                21: 246.0,
+                22: 230.0,
+                23: 413.0,
+                24: 207.0,
+                25: 430.0,
+                26: 189.0,
+                27: 374.0,
+                28: 261.0,
+                29: 218.0}
+        dt=[]
+        d=data.values()
+        dt=list(d)
+        l=len(dt)
+        dt.append(dt[l-1])
+        for i in reversed(range(0,len(dt))):
+            if i>2:
+                dt[i]=dt[i-1]
+            if i==2:
+                dt[i]=0
+        for i in range(0,len(dt)):
+            if i==5:
+                dt[i]=float(dt[i])
+            else:
+                dt[i]=int(dt[i])
+        dt[2]=int(loc[dt[6]])
+        print("list in form")
+        print(dt)
+        res=ValuePredictor([dt])
+        print(res)
+        return flask.render_template('results.html',data=data,res=res)
     return flask.render_template('index.html')        
 
 @app.route('/prediction',methods=['GET','POST'])

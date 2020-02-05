@@ -4,6 +4,69 @@
 <div class="container">
 <h4>Enter Details</h4>
 <form class="col s12" action="/results" method="POST">
+  
+  <div class="row">
+    <div class="input-field col s12">
+        <select name="online_order">
+        <option value="" disabled selected>Choose</option>
+        <option value=0>Yes</option>
+        <option value=1>No</option>
+        </select>
+        <label>Online Order</label>
+    </div>
+  </div>
+  
+
+  <div class="row">
+    <div class="input-field col s12">
+        <select name="book_table">
+        <option value="" disabled selected>Choose</option>
+        <option value=0>Yes</option>
+        <option value=1>No</option>
+        </select>
+        <label>Book Table</label>
+    </div>
+</div>  
+  
+
+<div class="row">
+  <div class="input-field col s12">
+    <select name="rest_type">
+    <option value="" disabled selected>Choose</option>
+    {% for key,value in restype.items() %}
+        <option value={{value}}>{{key}}</option>
+    {% endfor %}
+  
+  </select>
+    <label>Restaurant Type</label>
+  </div>
+  
+  </div>
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <select name="cuisine">
+      <option value="" disabled selected>Choose</option>
+      {% for key,value in cuisines.items() %}
+          <option value={{value}}>{{key}}</option>
+      {% endfor %}
+    
+    </select>
+      <label>Cuisine</label>
+  
+    </div>
+  
+  </div>
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="cost" type="text" name="cost" class="validate">
+      <label for="cost">Approx cost for two</label>
+    </div>
+  </div>
+
   <div class="row">
     <div class="input-field col s12">
       <select name="location">
@@ -17,70 +80,17 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="input-field col s12">
-        <select name="online_order">
-        <option value="" disabled selected>Choose</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        </select>
-        <label>Online Order</label>
-    </div>
-  </div>
-  <div class="row">
-      <div class="input-field col s12">
-          <select name="book_table">
-          <option value="" disabled selected>Choose</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          </select>
-          <label>Book Table</label>
-      </div>
-  </div>
 
-  <div class="row">
-  <div class="input-field col s12">
-    <input id="cost" type="text" name="cost" class="validate">
-    <label for="cost">Approx cost for two</label>
-  </div>
-</div>
 
-<div class="row">
-  <div class="input-field col s12">
-    <select name="cuisine">
-    <option value="" disabled selected>Choose</option>
-    {% for key,value in cuisines.items() %}
-        <option value={{value}}>{{key}}</option>
-    {% endfor %}
-  
-  </select>
-    <label>Cuisine</label>
-    <button class="btn waves-effect waves-light" type="" name="action">Add
-      
-  </button>
-  </div>
-
-</div>
-
+<!--
   <div class="row">
     <div class="input-field col s12">
     <div class="chips chips-autocomplete chips-placeholder "></div>
     
 </div>
 </div>
-<div class="row">
-<div class="input-field col s12">
-  <select name="rest_type">
-  <option value="" disabled selected>Choose</option>
-  {% for key,value in restype.items() %}
-      <option value={{value}}>{{key}}</option>
-  {% endfor %}
+-->
 
-</select>
-  <label>Restaurant Type</label>
-</div>
-
-</div>
 
 
 <div class="row">

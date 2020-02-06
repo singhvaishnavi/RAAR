@@ -1,8 +1,6 @@
 import os
 import flask
 import pickle
-import numpy as np
-import joblib
 from flask import Flask,render_template,request,url_for
 app=Flask(__name__,static_url_path="/static/")
 
@@ -239,12 +237,13 @@ def results():
                 dt[i]=float(dt[i])
             else:
                 dt[i]=int(dt[i])
-        dt[2]=int(loc[dt[6]])
-        print("list in form")
-        print(dt)
+        dt[2]=int(loc[dt[6]]) #Storing votes by area 
         res=ValuePredictor([dt])
         print(res)
-        return flask.render_template('results.html',data=data,res=res)
+        res=round(res,2)
+        feasibility = float((res/5)*100)
+        feasibility = round(feasibility,2)
+        return flask.render_template('results.html',data=data,res=res,feasibility=feasibility)
     return flask.render_template('index.html')        
 
 @app.route('/prediction',methods=['GET','POST'])

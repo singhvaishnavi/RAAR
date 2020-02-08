@@ -30,7 +30,11 @@
   
 
 <div class="row">
-  <div class="input-field col s12">
+  <div class="col">
+  <i class="material-icons tooltipped left" data-position="bottom" data-tooltip="Form">restaurant_menu</i>
+  </div>
+  <div class="col s11">
+  <div class="input-field col s11">
     <select name="rest_type">
     <option value="" disabled selected>Choose</option>
     {% for key,value in restype.items() %}
@@ -40,7 +44,7 @@
   </select>
     <label>Restaurant Type</label>
   </div>
-  
+</div>
   </div>
 
 
@@ -101,6 +105,9 @@
 </form>
 
 </div>
+<style>
+
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {

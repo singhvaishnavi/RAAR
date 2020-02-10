@@ -6,7 +6,10 @@
 <form class="col s12" action="/results" method="POST">
   
   <div class="row">
-    <div class="input-field col s12">
+    <div class="col">
+      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">phone_android</i>
+      </div>
+    <div class="input-field col s11">
         <select name="online_order">
         <option value="" disabled selected>Choose</option>
         <option value=0>Yes</option>
@@ -18,7 +21,10 @@
   
 
   <div class="row">
-    <div class="input-field col s12">
+    <div class="col">
+      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">event_seat</i>
+      </div>
+    <div class="input-field col s11">
         <select name="book_table">
         <option value="" disabled selected>Choose</option>
         <option value=0>Yes</option>
@@ -31,9 +37,8 @@
 
 <div class="row">
   <div class="col">
-  <i class="material-icons tooltipped left" data-position="bottom" data-tooltip="Form">restaurant_menu</i>
+  <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">restaurant</i>
   </div>
-  <div class="col s11">
   <div class="input-field col s11">
     <select name="rest_type">
     <option value="" disabled selected>Choose</option>
@@ -44,12 +49,14 @@
   </select>
     <label>Restaurant Type</label>
   </div>
-</div>
   </div>
 
 
   <div class="row">
-    <div class="input-field col s12">
+    <div class="col">
+      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">room_service</i>
+      </div>
+    <div class="input-field col s11">
       <select name="cuisine">
       <option value="" disabled selected>Choose</option>
       {% for key,value in cuisines.items() %}
@@ -65,14 +72,20 @@
 
 
   <div class="row">
-    <div class="input-field col s12">
+    <div class="col">
+      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">attach_money</i>
+      </div>
+    <div class="input-field col s11">
       <input id="cost" type="text" name="cost" class="validate">
       <label for="cost">Approx cost for two</label>
     </div>
   </div>
 
   <div class="row">
-    <div class="input-field col s12">
+    <div class="col">
+      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">location_on</i>
+      </div>
+    <div class="input-field col s11">
       <select name="location">
       <option value="" disabled selected>Choose</option>
       {% for key,value in location.items() %}
@@ -99,14 +112,17 @@
 
 <div class="row">
     <button class="btn waves-effect waves-light">Submit
-      <i class="material-icons right">send</i>
     </button>
 </div>
 </form>
 
 </div>
 <style>
-
+.material-icons
+{
+  font-size: 40px;
+  padding: 5px;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>

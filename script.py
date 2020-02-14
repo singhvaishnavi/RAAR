@@ -256,7 +256,24 @@ def home():
 
 @app.route('/dynamic',methods=['POST','GET'])
 def dynamic():
+    if request.method == 'POST':
+        flask.render_template('show_dynamic.html')
     return flask.render_template('dynamic.html')
+
+@app.route('/show_dynamic',methods=['POST','GET'])
+def show_dynamic():
+    if request.method == 'POST':
+        data = flask.request.form
+        dt = []
+        dt=list(data.values())
+        print("data in a list")
+        for i in range(2,len(dt)):
+            dt[i]=int(dt[i])
+        print(dt)
+        #x=graph1(dt)
+        #print(type(x))
+        return flask.render_template('show_dynamic.html')
+    return flask.render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

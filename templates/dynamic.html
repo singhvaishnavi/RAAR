@@ -1,0 +1,110 @@
+{%include "layout.html"%}
+{% block body %}
+{% include "nav.html" %}
+<div class="container">
+    <h3>Dynamic graphs</h3>
+<form class="col s12" method="POST" action="/show_dynamic">
+  <img src="" alt="image not shown">
+  <div class="row">
+    <div class="input-field col s6">
+        <select name="xaxis">
+          <option value="" disabled selected>Choose</option>
+          <option value="cost">Cost for two</option>
+          <option value="votes">Votes</option>
+          <option value="rating">Rating</option>
+          </select>
+        <label>X-Axis</label>
+    </div>
+    <div class="input-field col s6">
+      <select name="yaxis">
+      <option value="" disabled selected>Choose</option>
+      <option value="cost">Cost for two</option>
+      <option value="votes">Votes</option>
+      <option value="rating">Rating</option>
+      <option value="location">Location</option>
+      <option value="rest_type">Restaurant Type</option>
+      <option value="cuisine">Cuisine</option>
+      <option value="book_table">Booking Table</option>
+      <option value="online_order">Online Order</option>
+      </select>
+      <label>Y-Axis</label>
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s2">
+    <select name="xa">
+      <option value="" disabled selected>Choose X-Axis</option>
+      <option value=5>5</option>
+      <option value=10>10</option>
+      <option value=15>15</option>
+      <option value=20>20</option>
+      <option value=25>25</option>
+      <option value=30>30</option>
+      </select>
+      <label>Graph Size</label>
+  </div>
+<div class="input-field col s2">
+  <select name="ya">
+    <option value="" disabled selected>Choose Y-Axis</option>
+    <option value=5>5</option>
+    <option value=10>10</option>
+    <option value=15>15</option>
+    <option value=20>20</option>
+    <option value=25>25</option>
+    <option value=30>30</option>
+    </select>
+    <label>Graph Size</label>
+</div>
+<div class="input-field col s4">
+  <select name="font_size">
+    <option value="" disabled selected>Select Font Size</option>
+    <option value=5>5</option>
+    <option value=10>10</option>
+    <option value=15>15</option>
+    <option value=20>20</option>
+    <option value=25>25</option>
+    <option value=30>30</option>
+    </select>
+    <label>Font Scale</label>
+</div>
+
+<div class="input-field col s4">
+  <select name="res_no">
+    <option value="" disabled selected>Select Number of Restaurants </option>
+    <option value=5>5</option>
+    <option value=10>10</option>
+    <option value=15>15</option>
+    <option value=20>20</option>
+    <option value=25>25</option>
+    <option value=30>30</option>
+    <option value=>Full Size</option>
+    </select>
+    <label>Top Readings</label>
+</div>
+</div>
+
+  <div class="row">
+    <button class="btn waves-effect waves-light">Generate Graph
+      <i class="material-icons right">send</i>
+    </button>
+</div>
+
+    </form>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, {yearRange: 70, format: 'yyyy-mm-dd'});
+  
+      var selMenu = document.querySelectorAll('select');
+      var selinstances = M.FormSelect.init(selMenu, {});
+
+      $('textarea#med').characterCounter();
+      $('textarea#address').characterCounter();
+
+  });
+</script>
+{% endblock %}

@@ -1,49 +1,51 @@
 {%include "layout.html"%}
 {% block body %}
 {% include "nav.html" %}
-<div class="container">
-  <h3>Generic Graphs</h3>    
-      <img src={{ url_for('static',filename='location.png') }} alt="Rating vs Location" style="width:1000px;height:1000px;">
-      <br>
+<div class="container" align="center">
+  <h3>Visualizations</h3>    
+
       <h4 align="center">Rating vs Location</h4>
       <br>
-      <p align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Location</b>.For the highest rating <b>3.5</b> the location is <b>Brigade Road</b>. </p>
-      <br>        
-      <img src={{ url_for('static',filename='cost.png') }} alt="Rating vs Cost" style="width:1000px;height:1000px;">
+      <img src={{ url_for('static',filename='location.png') }} alt="Rating vs Location" style="width:950px;height:950px;" >
       <br>
-      <p align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Cost</b>.For the highest rating <b>3.5</b> the favourable cost for two is<b>500</b>. </p>
+      <h5 align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Location</b>.For the highest rating <b>4.9</b> the location is <b>Brigade Road</b>. </h5>
       <br>
       <h4 align="center">Rating vs Cost</h4>
+      <br>    
+      <img src={{ url_for('static',filename='cost.png') }} alt="Rating vs Cost" style="width:950px;height:950px;">
       <br>
-      <img src={{ url_for('static',filename='online_order.png') }} alt="Online Booking vs Rating" style="width:1000px;height:1000px;">
-      <br>
-      <p align="center">The x-axis represents <b>Online Booking</b> while the y-axis represents <b>Rating</b>.For the highest rating <b>3.5</b> the favourable Online Booking Option is<b>Yes</b>.  </p>
+      <h5 align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Cost</b>.For the highest rating <b>4.9</b> the favourable cost for two is <b>1220</b>. </h5>
       <br>
       <h4 align="center">Rating vs Online Booking</h4>
       <br>
-      <img src={{ url_for('static',filename='book_table.png') }} alt="Booking Table vs Rating" style="width:1000px;height:1000px;">
+      <img src={{ url_for('static',filename='online_order.png') }} alt="Online Booking vs Rating" style="width:950px;height:950px;">
       <br>
-      <p align="center">The x-axis represents <b>Booking Table</b> while the y-axis represents <b>Rating</b>.For the highest rating <b>3.5</b> the favourable Booking Table option is <b>Yes</b>.  </p>
+      <h5 align="center">The x-axis represents <b>Online Booking</b> while the y-axis represents <b>Rating</b>.For the highest rating <b>4.9</b> the favourable Online Booking Option is <b>Yes</b>.  </h5>
       <br>
       <h4 align="center">Rating vs Booking Table</h4>
       <br>
-      <img src={{ url_for('static',filename='rest_type.png') }} alt="Rating vs Restaurant Type" style="width:1000px;height:1000px;">
+      <img src={{ url_for('static',filename='book_table.png') }} alt="Booking Table vs Rating" style="width:950px;height:950px;">
       <br>
-      <p align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Restaurant Type</b>.For the highest rating <b>3.5</b> the Restaurant Type is <b>Quick Bites</b>.  </p>
+      <h5 align="center">The x-axis represents <b>Booking Table</b> while the y-axis represents <b>Rating</b>.For the highest rating <b>4.9</b> the favourable Booking Table option is <b>Yes</b>.  </h5>
       <br>
       <h4 align="center">Rating vs Restaurant Type</h4>
       <br>
-      <img src={{ url_for('static',filename='votes.png') }} alt="Rating vs Votes" style="width:1000px;height:1000px;">
+      <img src={{ url_for('static',filename='rest_type.png') }} alt="Rating vs Restaurant Type" style="width:950px;height:950px;">
       <br>
-      <p align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Votes</b>.For the highest rating <b>3.5</b> the highest Votes are <b>800</b>.  </p>
+      <h5 align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Restaurant Type</b>.For the highest rating <b>4.9</b> the Restaurant Type is <b>Microbrewery</b>.  </h5>
       <br>
       <h4 align="center">Rating vs Votes</h4>
       <br>
-      <img src={{ url_for('static',filename='cuisine.png') }} alt="Rating vs Cuisine" style="width:1000px;height:1000px;">
+
+      <img src={{ url_for('static',filename='votes.png') }} alt="Rating vs Votes" style="width:950px;height:950px;">
       <br>
-      <p align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Cuisine</b>.For the highest rating <b>3.5</b> the favourable Cuisne is <b>Chinese</b>.  </p>
+      <h5 align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Votes</b>.</h5>
       <br>
       <h4 align="center">Rating vs Cuisine</h4>
+      <br>
+      <img src={{ url_for('static',filename='cuisine.png') }} alt="Rating vs Cuisine" style="width:950px;height:950px;">
+      <br>
+      <h5 align="center">The x-axis represents <b>Rating</b> while the y-axis represents <b>Cuisine</b>.For the highest rating <b>4.9</b> the favourable Cuisne is <b>African</b>.  </h5>
       <br>
       <br>
 </div>

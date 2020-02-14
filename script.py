@@ -5,11 +5,6 @@ from flask import Flask,render_template,request,url_for
 app=Flask(__name__,static_url_path="/static/")
 
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return flask.render_template('index.html')
-
 def sortdic(x):
     dc={}
     for key in sorted(x):
@@ -167,6 +162,12 @@ def get_type():
     tp=sortdic(tp)
     return tp
 
+
+@app.route('/')
+@app.route('/home',methods=['POST','GET'])
+def home():
+    return flask.render_template('home.html')
+
 @app.route('/form',methods=['GET','POST'])
 def form():
     if request.method == 'POST':
@@ -250,9 +251,6 @@ def results():
 def prediction():
     return flask.render_template('prediction.html')
 
-@app.route('/home',methods=['POST','GET'])
-def home():
-    return flask.render_template('home.html')
 
 @app.route('/dynamic',methods=['POST','GET'])
 def dynamic():

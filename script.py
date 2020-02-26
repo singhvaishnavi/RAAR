@@ -1,7 +1,27 @@
 import os
-import flask
 import pickle
-from flask import Flask,render_template,request,url_for
+from flask import Flask,render_template,request,url_for,send_file
+from io import BytesIO
+import flask
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvasAgg
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import jinja2
+from random import randint
+import seaborn as sns
+plt.style.use('ggplot')
+app = Flask(__name__,static_url_path="/static/")
+my_loader = jinja2.ChoiceLoader([
+    app.jinja_loader,
+    jinja2.FileSystemLoader('static')
+])
+app.jinja_loader = my_loader
+df=pd.read_csv("visual.csv")
+
+
+
+
 app=Flask(__name__,static_url_path="/static/")
 
 
@@ -180,6 +200,25 @@ def ValuePredictor(to_predict_list):
     res=md.predict(to_predict_list)
     return (res[0])
 
+@app.route('/graph1/') #general graph
+def graph1(dt):
+    print(dt)
+    yaxis = dt[1]
+    xaxis = dt[0]
+    plt.figure(figsize=(dt[2],dt[3]))
+    sns.set(font_scale = 2)
+    c = 20
+    fig = sns.barplot(x=xaxis,y=yaxis, data= df[:])
+    fig.set_xlabel(xaxis ,fontsize=dt[4])
+    fig.set_ylabel(yaxis ,fontsize=dt[4])
+    im=randint(0,50)
+    fn='gr1'+str(im)+'.jpg'
+    plt.savefig('/home/vaishnavi/ZAAR/static/'+fn)
+    return(fn)
+
+
+
+
 @app.route('/results',methods=['GET','POST'])
 def results():
     if request.method == 'POST':
@@ -222,9 +261,10 @@ def show_dynamic():
         for i in range(2,len(dt)):
             dt[i]=int(dt[i])
         print(dt)
-        #x=graph1(dt)
-        #print(type(x))
-        return flask.render_template('show_dynamic.html')
+        x=graph1(dt)
+        print(type(x))
+        print(x)
+        return flask.render_template('show_dynamic.html',x=x)
     return flask.render_template('index.html')
 
 if __name__ == '__main__':

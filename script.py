@@ -216,7 +216,9 @@ def graph1(dt):
     plt.savefig('/home/vaishnavi/ZAAR/static/'+fn)
     return(fn)
 
-
+@app.route('/about')
+def about():
+    return flask.render_template('about.html')
 
 
 @app.route('/results',methods=['GET','POST'])

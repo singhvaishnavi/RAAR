@@ -176,69 +176,23 @@ def form():
     return flask.render_template('form.html',cuisines=get_cuisines(),restype=get_type(),location=get_locations())
 
 def ValuePredictor(to_predict_list):
-    md=pickle.load(open("/home/vaishnavi/Downloads/etree.pkl","rb"))
+    md=pickle.load(open("/home/vaishnavi/Downloads/etree1.pkl","rb"))
     res=md.predict(to_predict_list)
     return (res[0])
 
 @app.route('/results',methods=['GET','POST'])
 def results():
-
-    """
-    if request.method == 'POST':
-        to_predict_list = request.form.to_dict()
-        to_predict_list=list(to_predict_list.values())
-        to_predict_list = list(map(int, to_predict_list))
-        result = ValuePredictor(to_predict_list)
-    prediction=str(result)
-    """
     if request.method == 'POST':
         data = flask.request.form
-        loc = {0: 185.0,
-                1: 164.0,
-                2: 235.0,
-                3: 313.0,
-                4: 379.0,
-                5: 195.0,
-                6: 319.0,
-                7: 390.0,
-                8: 100.0,
-                9: 248.0,
-                10: 233.0,
-                11: 448.0,
-                12: 247.0,
-                13: 202.0,
-                14: 146.0,
-                15: 137.0,
-                16: 371.0,
-                17: 384.0,
-                18: 393.0,
-                19: 378.0,
-                20: 345.0,
-                21: 246.0,
-                22: 230.0,
-                23: 413.0,
-                24: 207.0,
-                25: 430.0,
-                26: 189.0,
-                27: 374.0,
-                28: 261.0,
-                29: 218.0}
         dt=[]
         d=data.values()
         dt=list(d)
         l=len(dt)
-        dt.append(dt[l-1])
-        for i in reversed(range(0,len(dt))):
-            if i>2:
-                dt[i]=dt[i-1]
-            if i==2:
-                dt[i]=0
         for i in range(0,len(dt)):
             if i==5:
                 dt[i]=float(dt[i])
             else:
                 dt[i]=int(dt[i])
-        dt[2]=int(loc[dt[6]]) #Storing votes by area 
         res=ValuePredictor([dt])
         print(res)
         res=round(res,2)

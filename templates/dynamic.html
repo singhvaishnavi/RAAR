@@ -2,9 +2,8 @@
 {% block body %}
 {% include "nav.html" %}
 <div class="container">
-    <h3>Dynamic graphs</h3>
+    <h3>Make your own graphs</h3>
 <form class="col s12" method="POST" action="/show_dynamic">
-  <img src="" alt="image not shown">
   <div class="row">
     <div class="input-field col s6">
         <select name="xaxis">
@@ -21,7 +20,7 @@
       <option value="rating">Rating</option>
       <option value="location">Location</option>
       <option value="rest_type">Restaurant Type</option>
-      <option value="cuisine">Cuisine</option>
+      <option value="cuisines">Cuisine</option>
       <option value="book_table">Booking Table</option>
       <option value="online_order">Online Order</option>
       </select>
@@ -68,14 +67,18 @@
 
 <div class="input-field col s4">
   <select name="res_no">
-    <option value="" disabled selected>Select Number of Restaurants </option>
+    <option value="" disabled selected>Select Number of Enteries </option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
     <option value=5>5</option>
+    <option value=6>6</option>
+    <option value=7>7</option>
+    <option value=8>8</option>
+    <option value=9>9</option>
     <option value=10>10</option>
-    <option value=15>15</option>
-    <option value=20>20</option>
-    <option value=25>25</option>
-    <option value=30>30</option>
-    <option value=>Full Size</option>
+    <option value=100>Full Size</option>
     </select>
     <label>Top Readings</label>
 </div>

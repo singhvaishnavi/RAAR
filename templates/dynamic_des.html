@@ -1,0 +1,28 @@
+{%include "layout.html"%}
+{% block body %}
+{% include "nav.html" %}
+<body>
+    <form method='POST' action="/dynamic">
+<div class="container">
+<h3>Make your own graphs</h3>
+<h4>Are you not satisfied with the basic representations we added? It's okay, this section is for you data head.</h4>
+<br>
+<p>Instructions:</p>
+<ol>
+    <li>Select your own parameters</li>
+    <li>Choose the field to be shown in the x-axis</li>
+    <li>Choose the field to be shown in the y-axis</li>
+    <li>Select the size of the graph by choosing the x-axis size and the y-axis size</li>
+    <li>Select if you want to see the full graph or a smaller version of the graph for a detailed relation.</li>
+</ol>
+<p>After this we will generate a graph based on your choice. What are you waiting for? Let's make some graphs!</p>
+
+<div class="row">
+    <button class="btn waves-effect waves-light">Make your own graph
+    </button>
+</div>
+</div>
+</form>
+
+</body>
+{% endblock %}

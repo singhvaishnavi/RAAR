@@ -188,11 +188,27 @@ def get_type():
 def home():
     return flask.render_template('home.html')
 
+@app.route('/dynamic_des',methods=['GET','POST'])
+def dynamic_des():
+    if request.method=='POST':
+        return flask.render_template('dynamic_des.html')  
+    return flask.render_template('dynamic_des.html')
+
+@app.route('/form_des',methods=['GET','POST'])
+def form_des():
+    if request.method=='POST':
+        return flask.render_template('form_des.html')  
+    return flask.render_template('form_des.html')
+
+
+
 @app.route('/form',methods=['GET','POST'])
 def form():
-    if request.method == 'POST':
+    if request.method == 'GET':
         data = flask.request.form
-        return flask.render_template('result.html',data=data)
+        return flask.render_template('results.html',data=data)
+    if request.method == 'POST':
+        return flask.render_template('form.html',cuisines=get_cuisines(),restype=get_type(),location=get_locations())
     return flask.render_template('form.html',cuisines=get_cuisines(),restype=get_type(),location=get_locations())
 
 def ValuePredictor(to_predict_list):
@@ -207,8 +223,11 @@ def graph1(dt):
     xaxis = dt[0]
     plt.figure(figsize=(dt[2],dt[3]))
     sns.set(font_scale = 2)
-    c = 20
-    fig = sns.barplot(x=xaxis,y=yaxis, data= df[:])
+    if dt[5]!=100:
+        c = dt[5]*5
+    else:
+        c=len(df)
+    fig = sns.barplot(x=xaxis,y=yaxis, data= df[:c])
     fig.set_xlabel(xaxis ,fontsize=dt[4])
     fig.set_ylabel(yaxis ,fontsize=dt[4])
     im=randint(0,50)
@@ -239,7 +258,24 @@ def results():
         res=round(res,2)
         feasibility = float((res/5)*100)
         feasibility = round(feasibility,2)
-        return flask.render_template('results.html',data=data,res=res,feasibility=feasibility)
+        recc=[]
+        cuis = df['cuisines']==dt[3]
+        ty = df['rest_type']==dt[2]  #ty = type
+        loc = df['location'] == dt[5]
+        #printing out the maximum count of occurences of cuisine in a particular location 
+        lc=df[cuis]['location'].max()
+        recc.append(lc)
+        #printing out the maximum count of occurences of restaurant type based on cuisine and location
+        rcl=df[cuis & loc]['rest_type'].max()
+        recc.append(rcl)
+        #printing out the maximum count of occurences of restaurant type based on location
+        rl=df[loc]['rest_type'].max()
+        recc.append(rl)
+        #printing out the appropriate cost based on cuisine, location and restaurant type
+        cos=df[loc & cuis & ty]['cost'].mean()
+        recc.append(cos)
+        print(recc)
+        return flask.render_template('results.html',data=data,res=res,feasibility=feasibility,recc=recc)
     return flask.render_template('index.html')        
 
 @app.route('/prediction',methods=['GET','POST'])

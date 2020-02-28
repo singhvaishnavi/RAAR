@@ -1,10 +1,136 @@
 {%include "layout.html"%}
 {% block body %}
-{% include "navigation.html" %}
+{% include "nav.html" %}
 <body>
-    <div id="container">
-        <h2>About Us</h2>
-        <p>ZAAR(Zomato Analysis and Recommendations) is a prediction, recommendations and analysis system for new business seekers in the field of Restaurant Chain in Bangalore. </p>
-    </div>
+  <img src="static/hp.jpg" style="width: 1905px; height: 700px;">
+    <div class="container">
+      <br>
+      <div class="card" style="width: 1450px; height: 400px;">
+        <div class="card-content">
+          <br>
+          <span class="card-title grey-text text-darken-4" style="font-size:xx-large;">About Us</span>
+          <br><hr><br><br>
+          <p style="font-size: large; text-align: justify;">ZAAR (Zomato Analysis and Recommendations) is a prediction, recommendations and analysis system for new business seekers in the field of Restaurant Chain in Bangalore. We focus on analysing the reviews of customers for restaurants on Zomato and  predicting the supposed ratings that restaurant will get based upon the values in the fields that you will enter. This rating can be used by you to predict the success score of how likely the business would succeed of  a newly opened restaurant, this will allow you to choose better practices to gain a better customer base. Along with the predicted rating, an analysis of the result will also shown to you so that the you can see how the fields that they entered will affect the predicted rating. There will be visualizations which will be rendered in the visualizations page which will is a visual insight for the users to determine the areas which affect the overall predicted rating and suggestions for the fields that you can change in order to get a better rating. </p>
+          <br>
+        </div>
+      </div>
+
+
+<br><br>
+      <h3 style="text-align: center;">Modules</h3>
+    <table>
+      <tr>
+        <td>
+        <div class="card" style="width: 475px; height: 475px;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="static/predict.png" 
+              style="width: 350px; 
+              height: 350px; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 80%;">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Prediction<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Prediction<i class="material-icons right">close</i></span>
+              <p>Do you feel you are ready to take the city's tastebuds by storm? Why don't you get a headstart by checking it's feasibility and predicted rating!</p>
+              <div class="row">
+                <button class="btn waves-effect waves-light" onclick="window.location.href='{{url_for('form_des')}}';">Predict
+                </button>
+            </div>
+            </div>
+            
+          </div>
+          </td>
+          <td>
+
+          <div class="card" style="width: 475px; height: 475px">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="static/analysee.png" 
+              style="width: 350px; 
+              height: 350px;
+              height: 350px; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 80%;">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Analyse<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Analyse<i class="material-icons right">close</i></span>
+              <p>These pre generated graphs will give you an insight into the current practices and trends followed by restaurants in Bangalore.</p>
+              <div class="row">
+                <button class="btn waves-effect waves-light" onclick="window.location.href='{{url_for('analysis')}}';">Analyse
+                </button>
+            </div>
+            </div>
+            
+          </div>
+          </td>
+          <td>
+
+          <div class="card" style="width: 475px; height: 475px">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="static/graphs.jpg" 
+              style="width: 350px; 
+              height: 350px; 
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 100%;">
+              
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Visualization<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Visualization<i class="material-icons right">close</i></span>
+              <p>If you think that the pre generated graphs didn't help you much or you just want to see more relationships, then this service is for you.</p>
+              <p>These pre generated graphs will give you an insight into the current practices and trends followed by restaurants in Bangalore.</p>
+              <div class="row">
+                <button class="btn waves-effect waves-light" onclick="window.location.href='{{url_for('basic_graph')}}';">Graphs
+                </button>
+            </div>
+            </div>
+            
+          </div>
+          </td>
+
+        </tr>
+          </table>
+        </div>
+        <footer class="page-footer grey darken-3">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">ZAAR</h5>
+                  <p class="grey-text text-lighten-4">Zomato Analysis and Recommendations is here to save your consultancy charges. Analyse, Predict and get Recommended.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Contact Us:</h5>
+                  <ul>
+                    <li><i class="material-icons tooltipped left" style="font-size: 20px;" data-position="bottom" data-tooltip="Form">phone</i>9031734884</li><br>
+                    <li><i class="material-icons tooltipped left" style="font-size: 20px;" data-position="bottom" data-tooltip="Form">email</i>vaishnavisingh.1509@gmail.com</li><br>
+                    <li><i class="material-icons tooltipped left" style="font-size: 20px;" data-position="bottom" data-tooltip="Form">phone</i>9441130106</li><br>
+                    <li><i class="material-icons tooltipped left" style="font-size: 20px;" data-position="bottom" data-tooltip="Form">email</i>gaurav.raichandani47@gmail.com</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+              © 2020 Copyright Text
+              <a class="grey-text text-lighten-4 right" href="/home_t">More Links</a>
+              </div>
+            </div>
+          </footer>
 </body>
+<style>
+
+    </style>
 {% endblock %}

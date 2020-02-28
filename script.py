@@ -184,8 +184,12 @@ def get_type():
 
 
 @app.route('/')
-@app.route('/home',methods=['POST','GET'])
-def home():
+@app.route('/home',methods=['GET','POST'])
+def home():  
+    return flask.render_template('main.html')
+
+@app.route('/basic_graph',methods=['GET','POST'])
+def basic_graph():
     return flask.render_template('home.html')
 
 @app.route('/dynamic_des',methods=['GET','POST'])
@@ -218,6 +222,11 @@ def analysed():
         return flask.render_template('analysed.html')  
     return flask.render_template('analysed.html')
 
+
+
+@app.route('/grp')
+def grp():
+    return flask.render_template('grp.html')
 
 
 @app.route('/form',methods=['GET','POST'])

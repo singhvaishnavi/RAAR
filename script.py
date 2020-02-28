@@ -200,6 +200,24 @@ def form_des():
         return flask.render_template('form_des.html')  
     return flask.render_template('form_des.html')
 
+@app.route('/analysis',methods=['GET','POST'])
+def analysis():
+    if request.method=='POST':
+        return flask.render_template('analysis.html')  
+    return flask.render_template('analysis.html')
+
+@app.route('/analyse',methods=['GET','POST'])
+def analyse():
+    if request.method=='POST':
+        return flask.render_template('analyse.html')  
+    return flask.render_template('analyse.html')
+
+@app.route('/analysed',methods=['GET','POST'])
+def analysed():
+    if request.method=='POST':
+        return flask.render_template('analysed.html')  
+    return flask.render_template('analysed.html')
+
 
 
 @app.route('/form',methods=['GET','POST'])

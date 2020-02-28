@@ -1,0 +1,17 @@
+{%include "layout.html"%}
+{% block body %}
+{% include "nav.html" %}
+<body>
+    <form method='POST' action='/analyse'>
+    <div class="container">
+    <h2>Get your relationships</h2>
+    <br>
+    <p>This module allows you to get the relationships between various fields. If you want to see relationships like if cuisine and location are related to each other or not? Then this is for you. </p>
+    <div class="row">
+        <button class="btn waves-effect waves-light">Perform Analysis
+        </button>
+        </div>
+
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,60 @@
+{%include "layout.html"%}
+{% block body %}
+{% include "nav.html" %}
+<body>
+    <form method='POST' action='/analysed'>
+    <div class="container">
+    <h2>Choose you fields of relationships</h2>
+    <br>
+    <div class="row">
+        <div class="input-field col s6">
+            <select name="a">
+              <option value="" disabled selected>Choose</option>
+              <option value="cost">Cost for two</option>
+              <option value="rating">Rating</option>
+              <option value="location">Location</option>
+              <option value="rest_type">Restaurant Type</option>
+              <option value="cuisines">Cuisine</option>
+              <option value="book_table">Booking Table</option>
+              <option value="online_order">Online Order</option>
+              </select>
+            <label>First Field</label>
+        </div>
+        <div class="input-field col s6">
+          <select name="b">
+          <option value="" disabled selected>Choose</option>
+          <option value="cost">Cost for two</option>
+          <option value="rating">Rating</option>
+          <option value="location">Location</option>
+          <option value="rest_type">Restaurant Type</option>
+          <option value="cuisines">Cuisine</option>
+          <option value="book_table">Booking Table</option>
+          <option value="online_order">Online Order</option>
+          </select>
+          <label>Second Field</label>
+      </div>
+    </div>
+
+
+    <div class="row">
+        <button class="btn waves-effect waves-light">Analyse
+        </button>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, {yearRange: 70, format: 'yyyy-mm-dd'});
+  
+      var selMenu = document.querySelectorAll('select');
+      var selinstances = M.FormSelect.init(selMenu, {});
+
+      $('textarea#med').characterCounter();
+      $('textarea#address').characterCounter();
+
+  });
+</script>
+{% endblock %}

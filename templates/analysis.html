@@ -1,17 +1,28 @@
 {%include "layout.html"%}
 {% block body %}
 {% include "nav.html" %}
-<body>
+<body style="font-family: Rubik;">
     <form method='POST' action='/analyse'>
+        <img src="static/gr.jpg" style="height: 620px; width: 1905px;">
     <div class="container">
-    <h2>Get your relationships</h2>
+
+    <div class="card-panel" style="height: 380px; width: 1200px;">
+        <span class="black-text">
+    
+            <h3 style="text-align: left;">Get your relationships</h3>
+            <br>
+    <hr>
     <br>
-    <p>This module allows you to get the relationships between various fields. If you want to see relationships like if cuisine and location are related to each other or not? Then this is for you. </p>
+    <span style="font-size: large; text-align: justify;">
+       <p>This module allows you to get the relationships between various fields. If you want to see relationships like if cuisine and location are related to each other or not? Then this is for you. </p>
     <div class="row">
         <button class="btn waves-effect waves-light">Perform Analysis
         </button>
         </div>
 
+        </span>
+    </div>
+ 
     </div>
 </body>
 {% endblock %}

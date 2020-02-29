@@ -1,13 +1,31 @@
 {%include "layout.html"%}
 {% block body %}
-{% include "navigation.html" %}
-<body>
+{% include "nav.html" %}
+<body style="font-family: Rubik;">
     <div id="loading"></div>
-    <div id="container">
-    <h1>Predicted Rating: {{res}} out of 5.0</h1>
-    <h1>Feasibility Rate: {{feasibility}}%</h1>
-    
-    
+    <div class="container">
+        <br>
+        <div class="row">
+        <div class="card-panel" style="width: fit-content;">
+            <span class="black-text">
+                <h1>Results</h1><br><hr><br>
+                <h4><i>Predicted Rating:</i> {{res}} out of 5.0</h4>
+                <h4><i>Feasibility Rate:</i> {{feasibility}}%</h4>
+            </span>
+          </div>
+          </div>
+        <br>
+            <br> <br>
+            <div class="row">
+            <div class="card-panel" style="width: fit-content;">
+                <span class="black-text">
+                    <h1>Recommendations</h1><br><hr><br>
+                    <h4><i>Cuisine:</i> </h4>
+                    <h4><i>Location:</i></h4>
+                </span>
+              </div>
+                </div>
+    </div>
     </div>
 </body>
 <style>

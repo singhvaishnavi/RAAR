@@ -1,12 +1,22 @@
 {%include "layout.html"%}
 {% block body %}
 {% include "nav.html" %}
-<body>
+<body style="font-family: 'Rubik', ;">
     <form method='POST' action="/dynamic">
-<div class="container">
-<h3>Make your own graphs</h3>
-<h4>Are you not satisfied with the basic representations we added? It's okay, this section is for you data head.</h4>
+        <img src="static/grp.jpg" style="height: 620px; width: 1905px;">
+        <div class="container">
+    <br>
+
+<div class="card-panel" style="height: 600px; width: 1200px;">
+    <span class="black-text">
+
+        <h3 style="text-align: left;">Make your own graphs</h3>
+        <br>
+<hr>
 <br>
+<span style="font-size: large;">
+
+<p>Are you not satisfied with the basic graphs we added? It's okay, this section is for your analytical head.</p>
 <p>Instructions:</p>
 <ol>
     <li>Select your own parameters</li>
@@ -15,13 +25,19 @@
     <li>Select the size of the graph by choosing the x-axis size and the y-axis size</li>
     <li>Select if you want to see the full graph or a smaller version of the graph for a detailed relation.</li>
 </ol>
-<p>After this we will generate a graph based on your choice. What are you waiting for? Let's make some graphs!</p>
+<p>After this we will generate a graph based on your choice. What are you waiting for? Let's make some graphs!</p><br>
+    </span>
 
 <div class="row">
     <button class="btn waves-effect waves-light">Make your own graph
     </button>
 </div>
+  </div>
+
 </div>
+
+
+
 </form>
 
 </body>

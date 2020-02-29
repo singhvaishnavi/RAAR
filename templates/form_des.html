@@ -1,20 +1,32 @@
 {%include "layout.html"%}
 {% block body %}
 {% include "nav.html" %}
-<body>
+<body style="font-family: Rubik;">
     <form method='POST' action="/form">
+        <img src="static/pr.png" style="height: 620px; width: 1905px;">
 <div class="container">
-<h3>Predictions and Recommendation</h3>
-<h4>Are you sure you have the vision for your to be restaurant? If so then GREAT! Let's check the feasibility of your to be restaurant.</h4>
-<br>
-<p>Instructions:</p>
-<p>Choose the fields. You must have some ideas in your head as to how want to rock the tastebuds of Bangaloreans. Choose among the given options and let's check the feasibility and predicted rating.</p>
-<p>In case you are not happy with the rating then no need to worry much. We are here to save you. We provide recommendations as well to the lower predicted rating. These recommendations are analysed by the current trend in Bangalore and honestly these points are the reason which will help you get a better rating. </p>
-<h5>Let's dive in!</h5>
-<div class="row">
-    <button class="btn waves-effect waves-light">Predict
-    </button>
-</div>
+
+
+    <div class="card-panel" style="height: 600px; width: 1200px;">
+        <span class="black-text">
+    
+            <h3 style="text-align: left;">Predictions and Recommendation</h3>
+            <br>
+    <hr>
+    <br>
+    <span style="font-size: large; text-align: justify;">
+        <p>Are you sure you have the vision for your to be restaurant? If so then GREAT! Let's check the feasibility of your to be restaurant.</p>
+        <p>Instructions:</p>
+        <p>Choose the fields. You must have some ideas in your head as to how want to rock the tastebuds of Bangaloreans. Choose among the given options and let's check the feasibility and predicted rating.</p>
+        <p>In case you are not happy with the rating then no need to worry much. We are here to save you. We provide recommendations as well to the lower predicted rating. These recommendations are analysed by the current trend in Bangalore and honestly these points are the reason which will help you get a better rating. </p>
+        <h5>Let's dive in!</h5><br>
+        <div class="row">
+            <button class="btn waves-effect waves-light">Predict
+            </button>
+        </div>
+        </span>
+    
+
 </div>
 </form>
 

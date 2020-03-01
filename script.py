@@ -18,19 +18,16 @@ my_loader = jinja2.ChoiceLoader([
 ])
 app.jinja_loader = my_loader
 df=pd.read_csv("visual.csv")
-
-
-
-
 app=Flask(__name__,static_url_path="/static/")
 
 
-def sortdic(x):
+def sortdic(x): #Used to sort the values in the dictionary
     dc={}
     for key in sorted(x):
         dc[key]=x[key]
     return dc
-def get_cuisines():
+
+def get_cuisines(): #Used to pass the sorted, encoded version of cuisine to the web page
     cui={'North Indian': 0,
         'Chinese': 1,
         'Cafe': 2,
@@ -121,7 +118,7 @@ def get_cuisines():
     cui=sortdic(cui)
     return cui
 
-def get_locations():
+def get_locations(): #Used to pass the sorted, encoded version of location to the web page
     loc={'Banashankari': 0,
         'Bannerghatta Road': 1,
         'Basavanagudi': 2,
@@ -155,7 +152,7 @@ def get_locations():
     loc=sortdic(loc)
     return loc
 
-def get_type():
+def get_type(): #Used to pass the sorted, encoded version of restaurant type to the web page
     tp={'Casual Dining': 0,
         'Cafe': 1,
         'Quick Bites': 2,
@@ -184,7 +181,7 @@ def get_type():
 
 
 @app.route('/')
-@app.route('/home',methods=['GET','POST'])
+@app.route('/home',methods=['GET','POST']) #homepage
 def home():  
     return flask.render_template('main.html')
 
@@ -222,14 +219,12 @@ def analysed():
         return flask.render_template('analysed.html')  
     return flask.render_template('analysed.html')
 
-
-
 @app.route('/grp')
 def grp():
     return flask.render_template('grp.html')
 
 
-@app.route('/form',methods=['GET','POST'])
+@app.route('/form',methods=['GET','POST']) #Form used to get values which is used for prediction
 def form():
     if request.method == 'GET':
         data = flask.request.form
@@ -267,7 +262,7 @@ def about():
     return flask.render_template('homepage.html')
 
 
-@app.route('/results',methods=['GET','POST'])
+@app.route('/results',methods=['GET','POST']) #Prediction and recommendation
 def results():
     if request.method == 'POST':
         data = flask.request.form
@@ -287,7 +282,7 @@ def results():
         feasibility = round(feasibility,2)
         recc=[]
         cuis = df['cuisines']==dt[3]
-        ty = df['rest_type']==dt[2]  #ty = type
+        ty = df['rest_type']==dt[2]  
         loc = df['location'] == dt[5]
         #printing out the maximum count of occurences of cuisine in a particular location 
         lc=df[cuis]['location'].max()

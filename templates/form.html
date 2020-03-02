@@ -2,118 +2,117 @@
 {% block body %}
 {% include "nav.html" %}
 <div class="container">
-<h4>Enter Details</h4>
+<br><br><br>
 <form class="col s12" action="/results" method="POST">
-  
-  <div class="row">
-    <div class="col">
-      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">phone_android</i>
+  <div class="card-panel " style="height: 850px; width: 1200px;">
+    <span class="black-text">
+      <h4>Enter Details</h4><br><hr><br>
+      <div class="row">
+        <div class="col">
+          <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">phone_android</i>
+          </div>
+        <div class="input-field col s11">
+            <select name="online_order">
+            <option value="" disabled selected>Choose</option>
+            <option value=0>Yes</option>
+            <option value=1>No</option>
+            </select>
+            <label>Online Order</label>
+        </div>
       </div>
-    <div class="input-field col s11">
-        <select name="online_order">
+      
+    
+      <div class="row">
+        <div class="col">
+          <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">event_seat</i>
+          </div>
+        <div class="input-field col s11">
+            <select name="book_table">
+            <option value="" disabled selected>Choose</option>
+            <option value=0>Yes</option>
+            <option value=1>No</option>
+            </select>
+            <label>Book Table</label>
+        </div>
+    </div>  
+      
+    
+    <div class="row">
+      <div class="col">
+      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">restaurant</i>
+      </div>
+      <div class="input-field col s11">
+        <select name="rest_type">
         <option value="" disabled selected>Choose</option>
-        <option value=0>Yes</option>
-        <option value=1>No</option>
+        {% for key,value in restype.items() %}
+            <option value={{value}}>{{key}}</option>
+        {% endfor %}
+      
+      </select>
+        <label>Restaurant Type</label>
+      </div>
+      </div>
+    
+    
+      <div class="row">
+        <div class="col">
+          <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">room_service</i>
+          </div>
+        <div class="input-field col s11">
+          <select name="cuisine">
+          <option value="" disabled selected>Choose</option>
+          {% for key,value in cuisines.items() %}
+              <option value={{value}}>{{key}}</option>
+          {% endfor %}
+        
         </select>
-        <label>Online Order</label>
-    </div>
-  </div>
-  
-
-  <div class="row">
-    <div class="col">
-      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">event_seat</i>
+          <label>Cuisine</label>
+      
+        </div>
+      
       </div>
-    <div class="input-field col s11">
-        <select name="book_table">
-        <option value="" disabled selected>Choose</option>
-        <option value=0>Yes</option>
-        <option value=1>No</option>
+    
+    
+      <div class="row">
+        <div class="col">
+          <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">attach_money</i>
+          </div>
+        <div class="input-field col s11">
+          <input id="cost" type="text" name="cost" class="validate">
+          <label for="cost">Approx cost for two</label>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col">
+          <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">location_on</i>
+          </div>
+        <div class="input-field col s11">
+          <select name="location">
+          <option value="" disabled selected>Choose</option>
+          {% for key,value in location.items() %}
+              <option value={{value}}>{{key}}</option>
+          {% endfor %}
+        
         </select>
-        <label>Book Table</label>
-    </div>
-</div>  
-  
-
-<div class="row">
-  <div class="col">
-  <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">restaurant</i>
-  </div>
-  <div class="input-field col s11">
-    <select name="rest_type">
-    <option value="" disabled selected>Choose</option>
-    {% for key,value in restype.items() %}
-        <option value={{value}}>{{key}}</option>
-    {% endfor %}
-  
-  </select>
-    <label>Restaurant Type</label>
-  </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col">
-      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">room_service</i>
+          <label>Location</label>
+        </div>
       </div>
-    <div class="input-field col s11">
-      <select name="cuisine">
-      <option value="" disabled selected>Choose</option>
-      {% for key,value in cuisines.items() %}
-          <option value={{value}}>{{key}}</option>
-      {% endfor %}
     
-    </select>
-      <label>Cuisine</label>
-  
-    </div>
-  
-  </div>
-
-
-  <div class="row">
-    <div class="col">
-      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">attach_money</i>
-      </div>
-    <div class="input-field col s11">
-      <input id="cost" type="text" name="cost" class="validate">
-      <label for="cost">Approx cost for two</label>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <i class="material-icons tooltipped " data-position="bottom" data-tooltip="Form">location_on</i>
-      </div>
-    <div class="input-field col s11">
-      <select name="location">
-      <option value="" disabled selected>Choose</option>
-      {% for key,value in location.items() %}
-          <option value={{value}}>{{key}}</option>
-      {% endfor %}
     
-    </select>
-      <label>Location</label>
-    </div>
-  </div>
-
-
-
-<!--
-  <div class="row">
-    <div class="input-field col s12">
-    <div class="chips chips-autocomplete chips-placeholder "></div>
     
-</div>
-</div>
--->
-
-
-
-<div class="row">
-    <button class="btn waves-effect waves-light">Submit
-    </button>
-</div>
+    
+    
+    <div class="row">
+        <button class="btn waves-effect waves-light">Submit
+        </button>
+    </div>
+    
+    
+    </span>
+  </div>
+ 
+<br><br>
 </form>
 
 </div>

@@ -18,6 +18,9 @@ my_loader = jinja2.ChoiceLoader([
 ])
 app.jinja_loader = my_loader
 df=pd.read_csv("visual.csv")
+df1 = df.sort_values(by=['rating'] , ascending=False).copy()
+print(df1.head(2))
+zomato=pd.read_csv("zm.csv")
 app=Flask(__name__,static_url_path="/static/")
 
 
@@ -216,7 +219,16 @@ def analyse():
 @app.route('/analysed',methods=['GET','POST'])
 def analysed():
     if request.method=='POST':
-        return flask.render_template('analysed.html')  
+        data = flask.request.form
+        print(data)
+        d=list(data.values())
+        print(d)
+        column_1 = zomato[d[0]]
+        column_2 = zomato[d[1]]
+        correlation = column_1.corr(column_2)
+        correlation=round(correlation,4)
+        print(correlation)
+        return flask.render_template('analysed.html',corr=correlation)  
     return flask.render_template('analysed.html')
 
 @app.route('/grp')
@@ -246,10 +258,22 @@ def graph1(dt):
     plt.figure(figsize=(dt[2],dt[3]))
     sns.set(font_scale = 2)
     if dt[5]!=100:
-        c = dt[5]*5
+        c = dt[5]
     else:
         c=len(df)
-    fig = sns.barplot(x=xaxis,y=yaxis, data= df[:c])
+    """
+    yaxis = 'rest_type'
+    xaxis = 'rating'
+    plt.figure(figsize=(35,30))
+    df2 = df1.sort_values(by=['rating'] , ascending=False).copy()
+    sns.set(font_scale = 2)
+    c = 20
+    fig = sns.barplot(x=xaxis,y=yaxis, data= df2[:])
+    fig.set_xlabel('Rating' ,fontsize=30)
+    fig.set_ylabel('Restaurant Type' ,fontsize=30)
+    """
+    sns.set(font_scale = 2) 
+    fig = sns.barplot(x=xaxis,y=yaxis, data= df1[:c])
     fig.set_xlabel(xaxis ,fontsize=dt[4])
     fig.set_ylabel(yaxis ,fontsize=dt[4])
     im=randint(0,50)

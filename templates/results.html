@@ -20,8 +20,13 @@
             <div class="card-panel" style="width: fit-content;">
                 <span class="black-text">
                     <h1>Recommendations</h1><br><hr><br>
-                    <h4><i>Cuisine:</i> </h4>
-                    <h4><i>Location:</i></h4>
+                    <h4><i>Restaurant Type:</i> {{recc[2]}} </h4>
+                    <h4><i>Location:</i> {{recc[0]}} </h4>
+                    {% if(recc[1] == 0): %}
+                    <h4><i>Cost:</i>Oops! Looks like your combination of inputs isn't ideal for the fields try changing one of them.</h4>
+                    {% else: %}
+                    <h4><i>Cost:</i> {{recc[1]}} </h4>
+                    {% endif %}
                 </span>
               </div>
                 </div>

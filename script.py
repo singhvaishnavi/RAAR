@@ -1,5 +1,6 @@
 import os
 import pickle
+import math
 from flask import Flask,render_template,request,url_for,send_file
 from io import BytesIO
 import flask
@@ -19,7 +20,7 @@ my_loader = jinja2.ChoiceLoader([
 app.jinja_loader = my_loader
 df=pd.read_csv("visual.csv")
 df1 = df.sort_values(by=['rating'] , ascending=False).copy()
-print(df1.head(2))
+#print(df1.head(2))
 zomato=pd.read_csv("zm.csv")
 app=Flask(__name__,static_url_path="/static/")
 
@@ -225,10 +226,21 @@ def analysed():
         print(d)
         column_1 = zomato[d[0]]
         column_2 = zomato[d[1]]
-        correlation = column_1.corr(column_2)
-        correlation=round(correlation,4)
-        print(correlation)
-        return flask.render_template('analysed.html',corr=correlation)  
+        cor=0.0
+        cor = column_1.corr(column_2)
+        cor=round(cor,4)
+        print(cor)
+        if cor>0:
+            if cor>0.2:
+                al="These exhibits a strong positive correlation"
+            if cor<0.2:
+                al="These exhibits a weak positive correlation"
+        else:
+            if cor>(-0.31):
+                al="These exhibits strong negative correlation"
+            if cor<(-0.31):
+                al="These exhibits weak negative correlation"
+        return flask.render_template('analysed.html',corr=cor,al=al)  
     return flask.render_template('analysed.html')
 
 @app.route('/grp')
@@ -301,25 +313,43 @@ def results():
                 dt[i]=int(dt[i])
         res=ValuePredictor([dt])
         print(res)
+        print(dt)
         res=round(res,2)
         feasibility = float((res/5)*100)
         feasibility = round(feasibility,2)
+        def getkey(my_dict,val):
+            key_list = list(my_dict.keys()) 
+            val_list = list(my_dict.values()) 
+            print(key_list[val_list.index(val)])
+            return(key_list[val_list.index(val)])
+        cui=get_cuisines()
+        tp=get_type()
+        loc=get_locations()
+        d=[]
+        vl=getkey(tp,dt[2])
+        d.append(vl)
+        vl=getkey(cui,dt[3])
+        d.append(vl)
+        vl=getkey(loc,dt[5])
+        d.append(vl)
+        print(d)
         recc=[]
-        cuis = df['cuisines']==dt[3]
-        ty = df['rest_type']==dt[2]  
-        loc = df['location'] == dt[5]
+        cuis = df['cuisines']==d[1]
+        ty = df['rest_type']==d[0]  
+        loc = df['location'] == d[2]
+
         #printing out the maximum count of occurences of cuisine in a particular location 
         lc=df[cuis]['location'].max()
         recc.append(lc)
         #printing out the maximum count of occurences of restaurant type based on cuisine and location
-        rcl=df[cuis & loc]['rest_type'].max()
+        rcl=df[loc & cuis & ty]['cost'].mean()
+        print(rcl)
+        if math.isnan(rcl):
+            rcl=0
         recc.append(rcl)
         #printing out the maximum count of occurences of restaurant type based on location
         rl=df[loc]['rest_type'].max()
         recc.append(rl)
-        #printing out the appropriate cost based on cuisine, location and restaurant type
-        cos=df[loc & cuis & ty]['cost'].mean()
-        recc.append(cos)
         print(recc)
         return flask.render_template('results.html',data=data,res=res,feasibility=feasibility,recc=recc)
     return flask.render_template('index.html')        

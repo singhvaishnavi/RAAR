@@ -20,7 +20,6 @@ my_loader = jinja2.ChoiceLoader([
 app.jinja_loader = my_loader
 df=pd.read_csv("visual.csv")
 df1 = df.sort_values(by=['rating'] , ascending=False).copy()
-#print(df1.head(2))
 zomato=pd.read_csv("zm.csv")
 app=Flask(__name__,static_url_path="/static/")
 
@@ -273,17 +272,6 @@ def graph1(dt):
         c = dt[5]
     else:
         c=len(df)
-    """
-    yaxis = 'rest_type'
-    xaxis = 'rating'
-    plt.figure(figsize=(35,30))
-    df2 = df1.sort_values(by=['rating'] , ascending=False).copy()
-    sns.set(font_scale = 2)
-    c = 20
-    fig = sns.barplot(x=xaxis,y=yaxis, data= df2[:])
-    fig.set_xlabel('Rating' ,fontsize=30)
-    fig.set_ylabel('Restaurant Type' ,fontsize=30)
-    """
     sns.set(font_scale = 2) 
     fig = sns.barplot(x=xaxis,y=yaxis, data= df1[:c])
     fig.set_xlabel(xaxis ,fontsize=dt[4])
@@ -346,6 +334,8 @@ def results():
         print(rcl)
         if math.isnan(rcl):
             rcl=0
+        else:
+            rcl=round(rcl,1)
         recc.append(rcl)
         #printing out the maximum count of occurences of restaurant type based on location
         rl=df[loc]['rest_type'].max()

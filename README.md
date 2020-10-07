@@ -15,7 +15,7 @@ This project focuses on analysing the reviews of customers for restaurants on Zo
 >deactivate  
 
 # Screenshots
-[Homepage1](static/screenshots/homepage1.png)  
-[Homepage2](static/screenshots/homepage2.png)  
-[Prediction](static/screenshots/Prediction.png)  
-[PredictionForm](static/screenshots/PredictionForm.png)  
+![Homepage1](static/screenshots/homepage1.png)  
+![Homepage2](static/screenshots/homepage2.png)  
+![Prediction](static/screenshots/Prediction.png)  
+![PredictionForm](static/screenshots/PredictionForm.png)  
